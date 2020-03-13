@@ -12,6 +12,9 @@ def create_app(test_config=None):
     db.create_all()
     #migrate = Migrate(app, db)
 
+    @app.route('/')
+    def user_greeting():
+        return "Welcome to our Sports App"
 
     @app.route('/players', methods=['GET'])
     @requires_auth('get:players')
